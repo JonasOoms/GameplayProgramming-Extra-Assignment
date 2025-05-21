@@ -90,12 +90,18 @@ void CellSpace::RegisterNeighbors(SteeringAgent* const pAgent, float neighborhoo
 			int cellIdx = row * m_NrOfCols + col;
 			Cell& cell = m_Cells[cellIdx];
 
-			
-			if (!Elite::IsOverlapping(cell.boundingBox, Elite::Rect{ agentPos - Elite::Vector2(neighborhoodRadius, neighborhoodRadius), neighborhoodRadius * 2, neighborhoodRadius * 2 }))
+			// redundant corner check (if cell is not in the circle)
+			float cellCenterX = (col + 0.5f) * m_CellWidth;
+			float cellCenterY = (row + 0.5f) * m_CellHeight;
+			Elite::Vector2 cellCenter{ cellCenterX, cellCenterY };
+			float distSqToCellCenter = Elite::DistanceSquared(agentPos, cellCenter);
+			float cellHalfDiag = 0.5f * std::sqrt(m_CellWidth * m_CellWidth + m_CellHeight * m_CellHeight);
+			float maxCellDist = neighborhoodRadius + cellHalfDiag;
+			if (distSqToCellCenter > maxCellDist * maxCellDist)
 			{
 				continue;
 			}
-		
+
 			for (const auto& agent : cell.agents)
 			{
 				float distanceSq = Elite::DistanceSquared(agent->GetPosition(), pAgent->GetPosition());

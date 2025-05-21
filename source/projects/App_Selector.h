@@ -6,12 +6,12 @@
 
 //#define ActiveApp_SteeringBehaviors
 //#define ActiveApp_CombinedSteering
-//#define ActiveApp_Flocking
+#define ActiveApp_Flocking
 //#define ActiveApp_GraphTheory
 //#define ActiveApp_Pathfinding_AStar
 //#define ActiveApp_NavMeshGraph
 //#define ActiveApp_FSM
-#define ActiveApp_BehaviorTrees
+//#define ActiveApp_BehaviorTrees
 
 //---------- Registered Applications -----------
 #ifdef ActiveApp_Sandbox

@@ -6,6 +6,12 @@
 
 ---
 
+**EXTRA ASSIGNMENT**
+**Week**: Week 3
+**Extra Assignment**: Using index calculations to calculate the rows and columns of the CellSpace inside the neighborhood radius
+
+---
+
 **INFO FOR STUDENTS**
 
 These are the start files for Gameplay Programing, based on the template used for the Github Classroom.
